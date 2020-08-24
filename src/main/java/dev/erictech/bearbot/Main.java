@@ -14,7 +14,7 @@ import org.javacord.api.entity.activity.ActivityType;
 
 public class Main {
     public static void main(String[] args) {
-        DiscordApi api = new DiscordApiBuilder().setToken("NzQ2NDYxMDI3OTE0NDgxODE1.X0AqAQ.BEL3KcnOJPJKKfRfa6lFmUG7--E").login().join();
+        DiscordApi api = new DiscordApiBuilder().setToken().login().join();
         System.out.println("Logged in!");
 
         api.updateActivity(ActivityType.LISTENING , " !help");
