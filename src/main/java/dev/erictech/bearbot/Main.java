@@ -11,32 +11,37 @@ import dev.erictech.bearbot.commands.moderation.*;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 import org.javacord.api.entity.activity.ActivityType;
+import org.javacord.api.util.logging.FallbackLoggerConfiguration;
 
 public class Main {
     public static void main(String[] args) {
-        DiscordApi api = new DiscordApiBuilder().setToken("NzQ2NDYxMDI3OTE0NDgxODE1.X0AqAQ.BEL3KcnOJPJKKfRfa6lFmUG7--E").login().join();
-        System.out.println("Logged in!");
+        if (args.length < 1) {
+            System.err.println("Please provide a valid token as the first argument!");
+            return;
+        }
 
-        api.updateActivity(ActivityType.LISTENING , " !help");
+        FallbackLoggerConfiguration.setDebug(true);
+
+        String token = args[0];
+
+        DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
+
+        api.updateActivity(ActivityType.LISTENING, " !help");
 
         api.addMessageCreateListener(new BanCommand());
         api.addMessageCreateListener(new KickCommand());
         api.addMessageCreateListener(new MuteCommand());
         api.addMessageCreateListener(new UnMuteCommand());
         api.addMessageCreateListener(new UnBanCommand());
-
         api.addMessageCreateListener(new PingSock());
-
         api.addMessageCreateListener(new PingCommand());
         api.addMessageCreateListener(new HelpCommand());
-
         api.addMessageCreateListener(new CoinCommand());
         api.addMessageCreateListener(new DiceCommand());
         api.addMessageCreateListener(new RPSCommand());
-
         api.addMessageCreateListener(new DogPictureCommand());
 
+        api.addServerJoinListener(event -> System.out.println("Joined server " + event.getServer().getName()));
+        api.addServerLeaveListener(event -> System.out.println("Left server " + event.getServer().getName()));
     }
-
-
 }
