@@ -15,3 +15,5 @@ dependencies {
     runtimeOnly group: 'org.apache.logging.log4j', name: 'log4j-core', version:'2.11.1'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 }
+
+mainClassName = 'dev.erictech.bearbot.Main'
