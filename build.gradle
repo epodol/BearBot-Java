@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'dev.erictech.bearbot'
-version '0.1.2'
+version '0.1.2-alpha'
 
 repositories {
     mavenCentral()
