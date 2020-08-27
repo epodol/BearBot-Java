@@ -1,5 +1,7 @@
 package dev.erictech.bearbot.commands.fun.games;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.javacord.api.entity.channel.TextChannel;
 import org.javacord.api.entity.message.MessageBuilder;
 import org.javacord.api.entity.message.embed.EmbedBuilder;
@@ -10,6 +12,8 @@ import java.awt.*;
 import java.util.Random;
 
 public class RPSCommand implements MessageCreateListener {
+    static final Logger logger = LogManager.getLogger(RPSCommand.class.getName());
+
     public void onMessageCreate(MessageCreateEvent event) {
         int cc;
         // 0 - Win
@@ -17,8 +21,10 @@ public class RPSCommand implements MessageCreateListener {
         // 2 - Lose
 
         if (event.getMessageContent().equalsIgnoreCase("!rps")) {
+            logger.info(event.getMessage() + " in " + event.getServer() + " " + event.getChannel() + " by user " + event.getMessageAuthor());
             event.getChannel().sendMessage("Choose Rock, Paper, or Scissors");
         } else if (event.getMessageContent().equalsIgnoreCase("!rps rock")) {
+            logger.info(event.getMessage() + " in " + event.getServer() + " " + event.getChannel() + " by user " + event.getMessageAuthor());
             TextChannel c = event.getChannel();
             cc = randomRPS();
             if (cc == 0) {
@@ -29,6 +35,7 @@ public class RPSCommand implements MessageCreateListener {
                 resultRPS("Rock", "Scissors", 0, c);
             }
         } else if (event.getMessageContent().equalsIgnoreCase("!rps paper")) {
+            logger.info(event.getMessage() + " in " + event.getServer() + " " + event.getChannel() + " by user " + event.getMessageAuthor());
             TextChannel c = event.getChannel();
             cc = randomRPS();
             if (cc == 0) {
@@ -39,6 +46,7 @@ public class RPSCommand implements MessageCreateListener {
                 resultRPS("Paper", "Scissors", 2, c);
             }
         } else if (event.getMessageContent().equalsIgnoreCase("!rps scissors")) {
+            logger.info(event.getMessage() + " in " + event.getServer() + " " + event.getChannel() + " by user " + event.getMessageAuthor());
             TextChannel c = event.getChannel();
             cc = randomRPS();
             if (cc == 0) {
