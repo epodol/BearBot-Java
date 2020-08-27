@@ -8,25 +8,29 @@ import dev.erictech.bearbot.commands.fun.games.DiceCommand;
 import dev.erictech.bearbot.commands.fun.games.RPSCommand;
 import dev.erictech.bearbot.commands.fun.pictures.DogPictureCommand;
 import dev.erictech.bearbot.commands.moderation.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 import org.javacord.api.entity.activity.ActivityType;
-import org.javacord.api.util.logging.FallbackLoggerConfiguration;
 
 public class Main {
+
+    private static Logger logger = LogManager.getLogger(Main.class);
+
     public static void main(String[] args) {
         if (args.length < 1) {
             System.err.println("Please provide a valid token as the first argument!");
             return;
         }
 
-        FallbackLoggerConfiguration.setDebug(true);
-
         String token = args[0];
 
         DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
 
         api.updateActivity(ActivityType.LISTENING, " !help");
+
+        logger.info("You can invite me by using the following url: " + api.createBotInvite());
 
         api.addMessageCreateListener(new BanCommand());
         api.addMessageCreateListener(new KickCommand());
@@ -41,7 +45,7 @@ public class Main {
         api.addMessageCreateListener(new RPSCommand());
         api.addMessageCreateListener(new DogPictureCommand());
 
-        api.addServerJoinListener(event -> System.out.println("Joined server " + event.getServer().getName()));
-        api.addServerLeaveListener(event -> System.out.println("Left server " + event.getServer().getName()));
+        api.addServerJoinListener(event -> logger.info("Joined server " + event.getServer().getName()));
+        api.addServerLeaveListener(event -> logger.info("Left server " + event.getServer().getName()));
     }
 }
