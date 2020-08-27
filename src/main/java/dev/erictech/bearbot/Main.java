@@ -7,6 +7,7 @@ import dev.erictech.bearbot.commands.fun.games.CoinCommand;
 import dev.erictech.bearbot.commands.fun.games.DiceCommand;
 import dev.erictech.bearbot.commands.fun.games.RPSCommand;
 import dev.erictech.bearbot.commands.fun.pictures.DogPictureCommand;
+import dev.erictech.bearbot.commands.fun.pictures.MemeCommand;
 import dev.erictech.bearbot.commands.moderation.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -44,6 +45,7 @@ public class Main {
         api.addMessageCreateListener(new DiceCommand());
         api.addMessageCreateListener(new RPSCommand());
         api.addMessageCreateListener(new DogPictureCommand());
+        api.addMessageCreateListener(new MemeCommand());
 
         api.addServerJoinListener(event -> logger.info("Joined server " + event.getServer().getName()));
         api.addServerLeaveListener(event -> logger.info("Left server " + event.getServer().getName()));
