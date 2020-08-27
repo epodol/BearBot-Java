@@ -1,1 +1,1 @@
-# Bear-Bot
+# BearBot
