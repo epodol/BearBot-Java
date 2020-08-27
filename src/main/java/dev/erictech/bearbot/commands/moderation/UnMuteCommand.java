@@ -10,7 +10,7 @@ public class UnMuteCommand implements MessageCreateListener {
     static final Logger logger = LogManager.getLogger(UnMuteCommand.class.getName());
 
     public void onMessageCreate(MessageCreateEvent event) {
-        if (event.getMessageContent().equalsIgnoreCase("!dice")) {
+        if (event.getMessageContent().equalsIgnoreCase("!unmute")) {
             logger.info(event.getMessage() + " in " + event.getServer() + " " + event.getChannel() + " by user " + event.getMessageAuthor());
             ComingSoonError.commingSoon(event.getChannel());
         }

@@ -10,7 +10,7 @@ public class MuteCommand implements MessageCreateListener {
     static final Logger logger = LogManager.getLogger(MuteCommand.class.getName());
 
     public void onMessageCreate(MessageCreateEvent event) {
-        if (event.getMessageContent().equalsIgnoreCase("!dice")) {
+        if (event.getMessageContent().equalsIgnoreCase("!mute")) {
             logger.info(event.getMessage() + " in " + event.getServer() + " " + event.getChannel() + " by user " + event.getMessageAuthor());
             ComingSoonError.commingSoon(event.getChannel());
         }

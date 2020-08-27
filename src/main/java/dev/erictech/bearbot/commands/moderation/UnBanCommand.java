@@ -10,7 +10,7 @@ public class UnBanCommand implements MessageCreateListener {
     static final Logger logger = LogManager.getLogger(UnBanCommand.class.getName());
 
     public void onMessageCreate(MessageCreateEvent event) {
-        if (event.getMessageContent().equalsIgnoreCase("!dice")) {
+        if (event.getMessageContent().equalsIgnoreCase("!unban")) {
             logger.info(event.getMessage() + " in " + event.getServer() + " " + event.getChannel() + " by user " + event.getMessageAuthor());
             ComingSoonError.commingSoon(event.getChannel());
         }

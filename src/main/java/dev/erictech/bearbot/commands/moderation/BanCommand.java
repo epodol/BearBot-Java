@@ -10,7 +10,7 @@ public class BanCommand implements MessageCreateListener {
     static final Logger logger = LogManager.getLogger(BanCommand.class.getName());
 
     public void onMessageCreate(MessageCreateEvent event) {
-        if (event.getMessageContent().equalsIgnoreCase("!dice")) {
+        if (event.getMessageContent().equalsIgnoreCase("!ban")) {
             logger.info(event.getMessage() + " in " + event.getServer() + " " + event.getChannel() + " by user " + event.getMessageAuthor());
             ComingSoonError.commingSoon(event.getChannel());
         }
