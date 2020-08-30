@@ -7,7 +7,7 @@ import org.javacord.api.entity.message.embed.EmbedBuilder;
 import java.awt.*;
 
 public class ComingSoonError {
-    public static void commingSoon(TextChannel channel){
+    public static void comingSoon(TextChannel channel){
         new MessageBuilder().setEmbed(new EmbedBuilder()
                 .setTitle("Feature Coming Soon!")
                 .setDescription("This Feature is currently in development. Stay tuned for more information!")
