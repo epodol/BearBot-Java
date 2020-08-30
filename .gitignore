@@ -1,0 +1,26 @@
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../../:\Users\Eric Podol\Documents\Coding\Discord Bots\BearBot\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+
+# volatile Gradle files
+/.gradle/
+/build/
+
+# Eclipse project files
+/.classpath
+/.project
+/.settings/
+
+# IntelliJ IDEA project files
+/.idea/
+/*/out/
+*.iml
+*.ipr
+*.iws
+
+# ignore the log from running the bot
+/log/
