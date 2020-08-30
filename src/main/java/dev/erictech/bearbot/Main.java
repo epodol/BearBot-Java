@@ -4,6 +4,7 @@ import de.btobastian.sdcf4j.CommandHandler;
 import de.btobastian.sdcf4j.handler.JavacordHandler;
 import dev.erictech.bearbot.commands.HelpCommand;
 import dev.erictech.bearbot.commands.PingCommand;
+import dev.erictech.bearbot.commands.VersionCommand;
 import dev.erictech.bearbot.commands.fun.games.CoinCommand;
 import dev.erictech.bearbot.commands.fun.games.DiceCommand;
 import dev.erictech.bearbot.commands.fun.games.RPSCommand;
@@ -37,6 +38,7 @@ public class Main {
         CommandHandler handler = new JavacordHandler(api);
 
         handler.registerCommand(new HelpCommand());
+        handler.registerCommand(new VersionCommand());
         handler.registerCommand(new PingCommand());
         handler.registerCommand(new BanCommand());
         handler.registerCommand(new KickCommand());
