@@ -23,6 +23,7 @@ public class HelpCommand implements CommandExecutor {
                     .addInlineField("Pictures", "`!meme`, `!dog`")
                     .addInlineField("Moderation", "`!ban`, `!unban`, `!mute`, `!unmute`, `!kick`, `!warn`")
                     .setColor(Color.cyan)
+                    .setTimestampToNow()
                     .setFooter("Requested by: " + message.getAuthor().getDisplayName(), message.getAuthor().getAvatar()))
                     .send(channel);
     }

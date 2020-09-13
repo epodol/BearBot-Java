@@ -96,6 +96,7 @@ public class RPSCommand implements CommandExecutor {
                 .addInlineField("You Chose:", uc)
                 .addInlineField("I Chose:", cc)
                 .setColor(color)
+                .setTimestampToNow()
                 .setFooter("Requested by: " + message.getAuthor().getDisplayName(), message.getAuthor().getAvatar()))
                 .send(channel);
     }

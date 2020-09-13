@@ -22,6 +22,7 @@ public class CoinCommand implements CommandExecutor {
         new MessageBuilder().setEmbed(new EmbedBuilder()
                 .setTitle("Flip a coin!")
                 .addField("Result: ", "It was **" + result + "**!")
+                .setTimestampToNow()
                 .setFooter("Requested by: " + message.getAuthor().getDisplayName(), message.getAuthor().getAvatar()))
                 .send(channel);
     }
