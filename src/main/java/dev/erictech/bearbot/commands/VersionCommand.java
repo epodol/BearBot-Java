@@ -13,12 +13,13 @@ import java.awt.*;
 
 public class VersionCommand implements CommandExecutor {
 
-    @Command(aliases = {"!version"}, description = "Returns the current version that the bot is using", usage = "!version")
+    @Command(aliases = {"!version", "!v"}, description = "Returns the current version that the bot is using", usage = "!version")
     public void onCommand(DiscordApi api, Message message, TextChannel channel, Server server, String[] args) {
         new MessageBuilder().setEmbed(new EmbedBuilder()
                 .setTitle("Current Bear Bot Version")
-                .addField("Current Version:", "`v0.1.3-alpha`")
+                .addField("Current Version:", "`v0.1.4-alpha`")
                 .setColor(Color.cyan)
+                .setTimestampToNow()
                 .setFooter("Requested by: " + message.getAuthor().getDisplayName(), message.getAuthor().getAvatar()))
                 .send(channel);
     }
